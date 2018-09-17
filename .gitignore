@@ -1,0 +1,8 @@
+# mac
+.DS_Store
+
+# static files
+static/
+
+# jupyter
+.ipynb_checkpoints/
