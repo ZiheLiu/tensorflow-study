@@ -8,6 +8,11 @@ from data import Data
 from model import LogisticRegressionModel
 
 
+def _write_string_to_file(filename, content):
+    with open(filename, 'w') as fout:
+        fout.write(content)
+
+
 def _draw_line(param_a, param_b, min_x, max_x):
     """根据两个端点的横坐标, 直线的一次函数，画出直线.
 
@@ -29,6 +34,8 @@ def train():
     model = LogisticRegressionModel()
 
     is_stop = False
+    gradient1_norm = 0
+    loss = 0
     while not is_stop:
         is_stop, gradient1_norm = model.train(data.source_data, data.target_data, constants.STOP_VALUE)
         loss = model.loss(data.source_data, data.target_data)
@@ -39,6 +46,8 @@ def train():
                                                constants.FEATURE_0, constants.FEATURE_1))
     if not os.path.isdir(output_dir):
         os.makedirs(output_dir)
+
+    _write_string_to_file(os.path.join(output_dir, 'result.txt'), 'gradient1_norm: %f, loss: %f' % (gradient1_norm, loss))
 
     colors = np.array(data.source_data.shape[0] * ['b'])
     colors[data.target_data == 1] = 'r'
