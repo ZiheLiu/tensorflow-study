@@ -51,6 +51,7 @@ class Train(object):
             loss = self.model.loss(self.data.source_data, self.data.target_data)
             self.loss_list.append(loss)
 
+            # print data
             print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, weights: %s' % \
                          (epoch_i, gradient1_norm, loss, str(self.model.weights))
             self.print_data_list.append(print_data)
@@ -64,6 +65,7 @@ class Train(object):
                     print('bad_loss_sum > 5, early stop')
                     break
 
+            # early stop check
             # 梯度下降算法只迭代50次
             if SHELL_ARGS.optimizer == 'gradient_descent' and epoch_i >= 50:
                 break

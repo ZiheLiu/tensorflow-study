@@ -79,6 +79,8 @@ class LogisticRegressionModel(object):
             weights = weights - gradient2的逆矩阵 * gradient1.
             gradient1 = sum(xi * (yi - f(xi))) 0<= i < n.
             gradient2 = sum(xi * xi^T * f(xi) * (1 - f(xi))) 0<= i < n.
+        使用梯度下降算法进行优化:
+            weights = weights - learning_rate * gradient1.
 
         Parameters:
             source_data: array.
