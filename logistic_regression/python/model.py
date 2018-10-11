@@ -43,9 +43,9 @@ class LogisticRegressionModel(object):
         linear = np.matmul(source_data, self.weights)
         return 1 / (1 + np.power(np.e, -linear))
 
-    def void_zero(self, vector):
+    def void_zero(self, vector, min_value=1e-8):
         """把向量中小于1e-8的数字都置为1e-8"""
-        vector[vector < 1e-8] = 1e-8
+        vector[vector < min_value] = min_value
         return vector
 
     def loss(self, source_data, target_data):
@@ -69,7 +69,7 @@ class LogisticRegressionModel(object):
                     + (1 - target_data) * np.log(self.void_zero((1 - predicted_data)))
         return -np.sum(matrix) / source_data.shape[0]
 
-    def train(self, source_data, target_data, stop_value):
+    def optimize(self, source_data, target_data, stop_value):
         """根据源数据和目标数据, 利用优化算法, 对参数weights进行更新.
 
 
