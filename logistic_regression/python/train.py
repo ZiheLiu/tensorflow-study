@@ -6,6 +6,7 @@ import numpy as np
 import constants
 from data import Data
 from model import LogisticRegressionModel
+from utils.shell_args import SHELL_ARGS
 
 
 def _write_string_to_file(filename, content):
@@ -39,6 +40,7 @@ class Train(object):
     def train(self):
         """对于线性回归模型, 使用牛顿法进行训练."""
 
+        epoch_i = 1
         is_stop = False
         pre_loss = 1.0
         bad_loss_sum = 0
@@ -49,21 +51,29 @@ class Train(object):
             loss = self.model.loss(self.data.source_data, self.data.target_data)
             self.loss_list.append(loss)
 
-            print_data = 'gradient1_norm: %.6f, loss: %.6f, weights: %s' % (gradient1_norm, loss, str(self.model.weights))
+            print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, weights: %s' % \
+                         (epoch_i, gradient1_norm, loss, str(self.model.weights))
             self.print_data_list.append(print_data)
             print(print_data)
 
             # early stop check
-            if pre_loss <= loss:
+            # 牛顿法loss值上升5次后停止
+            if SHELL_ARGS.optimizer == 'newton' and pre_loss <= loss:
                 bad_loss_sum += 1
                 if bad_loss_sum > 5:
                     print('bad_loss_sum > 5, early stop')
                     break
-            pre_loss = loss
 
-        output_dir = os.path.join(constants.OUTPUT_DIR,
+            # 梯度下降算法只迭代50次
+            if SHELL_ARGS.optimizer == 'gradient_descent' and epoch_i >= 50:
+                break
+
+            pre_loss = loss
+            epoch_i += 1
+
+        output_dir = os.path.join(constants.OUTPUT_DIR, SHELL_ARGS.optimizer,
                                   '%s_%s_%d_%d' % (constants.LABEL_0, constants.LABEL_1,
-                                                   constants.FEATURE_0, constants.FEATURE_1))
+                                                   SHELL_ARGS.feature_0, SHELL_ARGS.feature_1))
         if not os.path.isdir(output_dir):
             os.makedirs(output_dir)
         self._save_result_plot(output_dir)
@@ -71,8 +81,8 @@ class Train(object):
         self._save_loss_plot(output_dir)
 
     def _save_result_plot(self, output_dir):
-        plt.xlabel(constants.FEATURES[constants.FEATURE_0])
-        plt.ylabel(constants.FEATURES[constants.FEATURE_1])
+        plt.xlabel(constants.FEATURES[SHELL_ARGS.feature_0])
+        plt.ylabel(constants.FEATURES[SHELL_ARGS.feature_1])
 
         colors = np.array(self.data.source_data.shape[0] * ['b'])
         colors[self.data.target_data == 1] = 'r'

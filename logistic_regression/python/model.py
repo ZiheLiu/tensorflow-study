@@ -1,5 +1,7 @@
 import numpy as np
 
+from utils.shell_args import SHELL_ARGS
+
 
 class LogisticRegressionModel(object):
     def __init__(self):
@@ -65,8 +67,8 @@ class LogisticRegressionModel(object):
         """
         source_data = self._get_bias_mask_data(source_data)
         predicted_data = self.get_predicted_labels(source_data, bias_mask=False)
-        matrix = target_data * np.log(self.void_zero(predicted_data))\
-                    + (1 - target_data) * np.log(self.void_zero((1 - predicted_data)))
+        matrix = target_data * np.log(self.void_zero(predicted_data)) \
+                 + (1 - target_data) * np.log(self.void_zero((1 - predicted_data)))
         return -np.sum(matrix) / source_data.shape[0]
 
     def optimize(self, source_data, target_data, stop_value):
@@ -107,17 +109,20 @@ class LogisticRegressionModel(object):
         if gradient1_norm < stop_value:
             return True, gradient1_norm
 
-        # [n, 3, 3]
-        # sum(xi * xi^T * f(xi) * (1 - f(xi))) 0<= i < n
-        source_data_sum = np.matmul(np.reshape(source_data, (-1, 3, 1)), np.reshape(source_data, (-1, 1, 3)))
-        # [n, 3, 3]
-        gradient2_matrix = source_data_sum * (np.reshape(predicted_data, (-1, 1, 1))) \
-                                     * np.reshape((1 - predicted_data), (-1, 1, 1))
-        # [3, 3]
-        gradient2 = np.sum(gradient2_matrix, axis=0)
+        if SHELL_ARGS.optimizer == 'gradient_descent':
+            delta = gradient1 * 0.01
+        else:
+            # [n, 3, 3]
+            # sum(xi * xi^T * f(xi) * (1 - f(xi))) 0<= i < n
+            source_data_sum = np.matmul(np.reshape(source_data, (-1, 3, 1)), np.reshape(source_data, (-1, 1, 3)))
+            # [n, 3, 3]
+            gradient2_matrix = source_data_sum * (np.reshape(predicted_data, (-1, 1, 1))) \
+                               * np.reshape((1 - predicted_data), (-1, 1, 1))
+            # [3, 3]
+            gradient2 = np.sum(gradient2_matrix, axis=0)
 
-        # [3]
-        delta = np.matmul(np.linalg.inv(gradient2), gradient1)
+            # [3]
+            delta = np.matmul(np.linalg.inv(gradient2), gradient1)
 
         self.weights += delta
         return False, gradient1_norm

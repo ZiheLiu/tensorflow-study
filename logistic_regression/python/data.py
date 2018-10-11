@@ -1,6 +1,7 @@
 import numpy as np
 
 import constants
+from utils.shell_args import SHELL_ARGS
 
 
 class Data(object):
@@ -20,7 +21,7 @@ class Data(object):
         return 0 if str_label == constants.LABEL_0 else 1
 
     def _get_features(self, columns):
-        return float(columns[constants.FEATURE_0]), float(columns[constants.FEATURE_1])
+        return float(columns[SHELL_ARGS.feature_0]), float(columns[SHELL_ARGS.feature_1])
 
     def get_data(self):
         """从csv文件中获取source_data和target_data.

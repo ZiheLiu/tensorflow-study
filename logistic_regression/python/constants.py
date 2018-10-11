@@ -11,8 +11,7 @@ INPUT_IRIS_FILENAME = os.path.join(INPUT_DIR, 'iris.data')
 LABEL_0 = 'Iris-setosa'
 LABEL_1 = 'Iris-virginica'
 FEATURES = ('sepal length', 'sepal width', 'petal length', 'petal width')
-FEATURE_0 = 1
-FEATURE_1 = 2
 
 # hyper params
 STOP_VALUE = 1e-6
+LEARNING_RATE = 0.02
