@@ -53,6 +53,7 @@ class Train(object):
             self.print_data_list.append(print_data)
             print(print_data)
 
+            # early stop check
             if pre_loss <= loss:
                 bad_loss_sum += 1
                 if bad_loss_sum > 5:

@@ -85,6 +85,7 @@ gradient1 = np.sum(gradient1_matrix, axis=0)
 
 - 从数据集中读取数据，利用Logistic Regression模型进行迭代训练。
 - 直到模型输出的一阶偏导矩阵的二阶范数小于一个特定的值，停止训练。
+- 因为存在无法收敛的情况，如果loss值上升了5次以上，则early stop。
 - 停止训练后，存储最后一次迭代的损失值和一阶偏导矩阵的二阶范数，以及数据集和参数`weights`的可视化图片。
 
 
