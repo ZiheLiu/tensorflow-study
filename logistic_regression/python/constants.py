@@ -10,7 +10,7 @@ INPUT_IRIS_FILENAME = os.path.join(INPUT_DIR, 'iris.data')
 
 LABEL_0 = 'Iris-setosa'
 LABEL_1 = 'Iris-virginica'
-FEATURE_0 = 0
+FEATURE_0 = 2
 FEATURE_1 = 3
 
 # hyper params

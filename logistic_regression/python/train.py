@@ -28,40 +28,53 @@ def _draw_line(param_a, param_b, min_x, max_x):
     plt.plot((min_x, max_x), (param_a * min_x + param_b, param_a * max_x + param_b))
 
 
-def train():
-    """读取数据, 对于线性回归模型, 使用牛顿法进行训练."""
-    data = Data()
-    model = LogisticRegressionModel()
+class Train(object):
+    def __init__(self):
+        self.data = Data()
+        self.model = LogisticRegressionModel()
 
-    is_stop = False
-    gradient1_norm = 0
-    loss = 0
-    while not is_stop:
-        is_stop, gradient1_norm = model.train(data.source_data, data.target_data, constants.STOP_VALUE)
-        loss = model.loss(data.source_data, data.target_data)
-        print('gradient1_norm: %.6f, loss: %.6f' % (gradient1_norm, loss))
+        self.print_data_list = list()
 
-    output_dir = os.path.join(constants.OUTPUT_DIR,
-                              '%s_%s_%d_%d' % (constants.LABEL_0, constants.LABEL_1,
-                                               constants.FEATURE_0, constants.FEATURE_1))
-    if not os.path.isdir(output_dir):
-        os.makedirs(output_dir)
+    def train(self):
+        """读取数据, 对于线性回归模型, 使用牛顿法进行训练."""
 
-    _write_string_to_file(os.path.join(output_dir, 'result.txt'), 'gradient1_norm: %f, loss: %f' % (gradient1_norm, loss))
+        is_stop = False
+        while not is_stop:
+            is_stop, gradient1_norm = self.model.train(self.data.source_data,
+                                                       self.data.target_data,
+                                                       constants.STOP_VALUE)
+            loss = self.model.loss(self.data.source_data, self.data.target_data)
 
-    colors = np.array(data.source_data.shape[0] * ['b'])
-    colors[data.target_data == 1] = 'r'
-    plt.scatter(data.source_data[:, 0], data.source_data[:, 1], c=colors)
+            print_data = 'gradient1_norm: %.6f, loss: %.6f' % (gradient1_norm, loss)
+            self.print_data_list.append(print_data)
+            print(print_data)
 
-    # w1 * x + w2 * y + b = 0
-    # y = -w1/w2 * x - b/w2
-    _draw_line(-model.weights[0] / model.weights[1],
-               -model.weights[2] / model.weights[1],
-               data.source_min_bound[0],
-               data.source_max_bound[0])
+        output_dir = os.path.join(constants.OUTPUT_DIR,
+                                  '%s_%s_%d_%d' % (constants.LABEL_0, constants.LABEL_1,
+                                                   constants.FEATURE_0, constants.FEATURE_1))
+        if not os.path.isdir(output_dir):
+            os.makedirs(output_dir)
+        self._save_result_plot(output_dir)
+        self._save_train_print_data(output_dir)
 
-    plt.savefig(os.path.join(output_dir, 'result.png'))
+    def _save_result_plot(self, output_dir):
+        colors = np.array(self.data.source_data.shape[0] * ['b'])
+        colors[self.data.target_data == 1] = 'r'
+        plt.scatter(self.data.source_data[:, 0], self.data.source_data[:, 1], c=colors)
+
+        # w1 * x + w2 * y + b = 0
+        # y = -w1/w2 * x - b/w2
+        _draw_line(-self.model.weights[0] / self.model.weights[1],
+                   -self.model.weights[2] / self.model.weights[1],
+                   self.data.source_min_bound[0],
+                   self.data.source_max_bound[0])
+
+        plt.savefig(os.path.join(output_dir, 'result.png'))
+
+    def _save_train_print_data(self, output_dir):
+        _write_string_to_file(os.path.join(output_dir, 'result.txt'),
+                              '\n'.join(self.print_data_list))
 
 
 if __name__ == '__main__':
-    train()
+    Train().train()
