@@ -2,7 +2,16 @@
 .DS_Store
 
 # static files
-**/static/
+static/
 
 # jupyter
 **/.ipynb_checkpoints/
+
+# virtualenv
+**/venv
+
+# python
+**/__pycache__
+
+# pycharm
+**/.idea
