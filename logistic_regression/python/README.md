@@ -72,6 +72,8 @@ $ python train.py --optimizer=gradient_descent --feature_0=2 --feature_1=3
 类`Data`，对数据集的读取和查询进行封装.
 
 - 从csv文件中读取数据集，只保留2个特征值、2个类别的数据，分别存在变量`source_data`和`target_data`中。
+  - source_data是二维数组，每一行存储了2个特征值。
+  - target_data是一位数组，每个元素是0或者1（如果类别是Iris-setosa则是0，是Iris-virginica则是1）
 - 存储source_data的边界`min_bound`和`max_bound`。
 
 #### 3.6 model.py
@@ -113,7 +115,7 @@ gradient1 = np.sum(gradient1_matrix, axis=0)
 
 实验的训练集使用了Iris数据集，并且每次只保留2个特征值和2个类别的数据来进行训练。具体选取了Iris-setosa_Iris和virginica两个类别，对于4个特征值sepal length、sepal width、petal length、petal width，分别两两组合，得到6个不同的数据集来进行训练。在训练开始时，模型所有的参数的初始值为0.0，对于梯度下降算法，学习率为0.02。分别使用牛顿法和梯度下降算法来进行训练。
 
-牛顿法和梯度下降算法的实验结果的实验数据集散点及参数直线示意图如图1和图2所示，
+牛顿法和梯度下降算法的实验结果的实验数据集散点及参数直线示意图如图1和图2所示，其中红色的点为Iris-virginica类别的，蓝色的点为Iris-setosa类别，直线为二分类决策的边界线，它的两侧为不同类别的数据点。
 
 - 可以看到经过牛顿法训练的Logistics Regression模型，可以根据两个特征值很好的区分开了Iris数据集的两个类别。
 - 梯度下降算法，也可以区分开数据集上的两个类别。但是准确程度相对于牛顿法有所下降，例如左上角的第一幅图，梯度下降算法把一个蓝色类别点错误的归为红色的类别了。
