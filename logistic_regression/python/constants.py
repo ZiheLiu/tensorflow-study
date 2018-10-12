@@ -14,4 +14,4 @@ FEATURES = ('sepal length', 'sepal width', 'petal length', 'petal width')
 
 # hyper params
 STOP_VALUE = 1e-6
-LEARNING_RATE = 0.02
+LEARNING_RATE = 0.01

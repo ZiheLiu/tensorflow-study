@@ -1,5 +1,6 @@
 import numpy as np
 
+import constants
 from utils.shell_args import SHELL_ARGS
 
 
@@ -112,7 +113,7 @@ class LogisticRegressionModel(object):
             return True, gradient1_norm
 
         if SHELL_ARGS.optimizer == 'gradient_descent':
-            delta = gradient1 * 0.01
+            delta = gradient1 * constants.LEARNING_RATE
         else:
             # [n, 3, 3]
             # sum(xi * xi^T * f(xi) * (1 - f(xi))) 0<= i < n
