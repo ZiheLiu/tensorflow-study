@@ -35,9 +35,9 @@ class Data(object):
                 The features for each row.
                 eg. (('5.1', '1.4'), ('4.9', '1.4'))
             target_data: array.
-                shape: [-1], dtype: float(1 or 0).
+                shape: [-1, 1], dtype: float(1 or 0).
                 The label for each row.
-                eg. (1., 0.)
+                eg. ((1.,), (0.,))
         """
         source_data = list()
         target_data = list()
@@ -48,5 +48,5 @@ class Data(object):
                 columns = line.replace('\n', '').split(',')
                 if self._is_contained_labels(columns[4]):
                     source_data.append(self._get_features(columns))
-                    target_data.append(self._get_numeric_label(columns[4]))
+                    target_data.append([self._get_numeric_label(columns[4])])
         return source_data, target_data

@@ -52,7 +52,7 @@ class Train(object):
             self.loss_list.append(loss)
 
             # print data
-            print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, weights: %s' % \
+            print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, weights:\n%s' % \
                          (epoch_i, gradient1_norm, loss, str(self.model.weights))
             self.print_data_list.append(print_data)
             print(print_data)
@@ -87,7 +87,7 @@ class Train(object):
         plt.ylabel(constants.FEATURES[SHELL_ARGS.feature_1])
 
         colors = np.array(self.data.source_data.shape[0] * ['b'])
-        colors[self.data.target_data == 1] = 'r'
+        colors[np.reshape(self.data.target_data, (-1,)) == 1] = 'r'
         plt.scatter(self.data.source_data[:, 0], self.data.source_data[:, 1], c=colors)
 
         # w1 * x + w2 * y + b = 0
