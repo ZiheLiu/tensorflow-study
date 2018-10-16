@@ -1,7 +1,6 @@
 import os
 
 import matplotlib.pyplot as plt
-import numpy as np
 
 import constants
 from data import Data
@@ -15,10 +14,11 @@ def _write_string_to_file(filename, content):
 
 
 def _draw_line(param_a, param_b, min_x, max_x):
-    """根据两个端点的横坐标, 直线的一次函数，画出直线.
+    """According with x-axis coordinate of 2 end points and parameters linear function,
+    draw the line.
 
     f(x) = param_a * x + param_b.
-    画出两个端点即可:(min_x, f(min_x)), (max_x, f(max_x))
+    Only need to draw the 2 end points: (min_x, f(min_x)), (max_x, f(max_x)).
 
     Args:
         param_a: float.
@@ -38,7 +38,7 @@ class Train(object):
         self.loss_list = list()
 
     def train(self):
-        """对于线性回归模型, 使用牛顿法进行训练."""
+        """Train LogisticRegressionClassificationModel with Newton Method or Gradient Descent."""
 
         epoch_i = 1
         is_stop = False
@@ -59,7 +59,7 @@ class Train(object):
             print(print_data)
 
             # early stop check
-            # 牛顿法loss值上升5次后停止
+            # Early stop when loss increases 5 times with Newton Method.
             if SHELL_ARGS.optimizer == 'newton' and pre_loss <= loss:
                 bad_loss_sum += 1
                 if bad_loss_sum > 5:
@@ -67,7 +67,7 @@ class Train(object):
                     break
 
             # early stop check
-            # 梯度下降算法只迭代50次
+            # Only iterate 50 times with Gradient Descent.
             if SHELL_ARGS.optimizer == 'gradient_descent' and epoch_i >= 100:
                 break
 

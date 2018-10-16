@@ -51,10 +51,10 @@ class Data(object):
         return self.source_data[np.reshape(self.target_data, -1) == 1]
 
     def get_data(self, filename, label_index):
-        """从csv文件中获取source_data和target_data.
+        """Read source_data and target_data from csv file.
 
-        只保留LABEL_0和LABEL_1两个类别数据.
-        只保留FEATURE_0和FEATURE_1两个特征.
+        Only remain 2 classes: LABEL_0, LABEL_1.
+        Only remain 2 features: FEATURE_0, FEATURE_1.
 
         Return:
             source_data: array.

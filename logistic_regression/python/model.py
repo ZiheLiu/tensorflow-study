@@ -9,7 +9,7 @@ class LogisticRegressionClassificationModel(object):
         self.weights = np.array(((0.,), (0.,), (0.,)))
 
     def _get_bias_mask_data(self, data):
-        """输入二维向量，每一行加一列1.
+        """Input 2-D vector, output 2-D vector inserted a column of 1.
 
         Parameters:
             data: array.
@@ -25,7 +25,7 @@ class LogisticRegressionClassificationModel(object):
         return np.column_stack((data, bias_mask))
 
     def get_predicted_labels(self, source_data, bias_mask=True):
-        """以矩阵的形式输入多条数据，输出每条数据的labels组成的矩阵.
+        """Input source_data with vector, output labels with vector.
 
         f(x) = 1 / (1 + e^(weights * x + bias)).
 
@@ -47,22 +47,22 @@ class LogisticRegressionClassificationModel(object):
         return 1 / (1 + np.exp(-linear))
 
     def void_zero(self, vector, min_value=1e-8):
-        """把向量中小于1e-8的数字都置为1e-8"""
+        """Update numbers in vector to 1e-8 which are lower than 1e-8."""
         vector[vector < min_value] = min_value
         return vector
 
     def loss(self, source_data, target_data):
-        """根据源数据和目标数据, 求得损失值.
+        """According with source data and target data, compute loss.
 
         loss = sum(yi * ln(f(xi)) + (1 - yi) * ln(1 - f(xi))) 0<= i < n.
 
         Parameters:
             source_data: array.
                 shape: [n, 2].
-                每行是一条数据的两个特征值.
+                Each row contains 2 features.
             target_data: array.
-                shape: [n].
-                每个元素是label值, 0或1.
+                shape: [n, 1].
+                Each row contains 1 label, 0 or 1.
         Return:
             out: float.
         """
@@ -80,31 +80,31 @@ class LogisticRegressionClassificationModel(object):
         return (predictions == target_data).mean()
 
     def optimize(self, source_data, target_data, stop_value):
-        """根据源数据和目标数据, 利用优化算法, 对参数weights进行更新.
+        """According with source data and target data, update parameters weights with optimize algorithm.
 
 
-        使用牛顿法对参数进行优化:
-            weights = weights - gradient2的逆矩阵 * gradient1.
+        Using Newton Method to optimize parameters:
+            weights = weights - gradient2's inv * gradient1.
             gradient1 = sum(xi * (yi - f(xi))) 0<= i < n.
             gradient2 = sum(xi * xi^T * f(xi) * (1 - f(xi))) 0<= i < n.
-        使用梯度下降算法进行优化:
+        Using Gradient Descent to optimize parameters:
             weights = weights - learning_rate * gradient1.
 
         Parameters:
             source_data: ndarray.
                 shape: [n, 2].
-                每行是一条数据的两个特征值.
+                Each row contains 2 features.
             target_data: ndarray.
-                shape: [n].
-                每个元素是label值, 0或1.
+                shape: [n, 1].
+                Each row contains 1 label, 0 or 1.
             stop_value: float.
-                如果梯度的二阶范数小于stop_value, 则不更新weights, 否则更新weights.
+                If ||gradient|| < stop_value, don't update weights.
 
         Return:
             is_stop: bool.
-                是否应该停止训练, 即梯度的二阶范数是否小于stop_value.
+                Whether stopping train, that is ||gradient|| < stop_value.
             gradient1_norm: float.
-                梯度的二阶范数.
+                ||gradient||.
         """
         source_data = self._get_bias_mask_data(source_data)
         predicted_data = self.get_predicted_labels(source_data, bias_mask=False)
