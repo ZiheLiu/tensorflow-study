@@ -5,7 +5,7 @@ import numpy as np
 
 import constants
 from data import Data
-from model import LogisticRegressionModel
+from model import LogisticRegressionClassificationModel
 from utils.shell_args import SHELL_ARGS
 
 
@@ -32,7 +32,7 @@ def _draw_line(param_a, param_b, min_x, max_x):
 class Train(object):
     def __init__(self):
         self.data = Data(SHELL_ARGS.data_type)
-        self.model = LogisticRegressionModel()
+        self.model = LogisticRegressionClassificationModel()
 
         self.print_data_list = list()
         self.loss_list = list()

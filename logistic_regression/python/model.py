@@ -1,11 +1,10 @@
 import numpy as np
-from numpy import ndarray
 
 import constants
 from utils.shell_args import SHELL_ARGS
 
 
-class LogisticRegressionModel(object):
+class LogisticRegressionClassificationModel(object):
     def __init__(self):
         self.weights = np.array(((0.,), (0.,), (0.,)))
 
