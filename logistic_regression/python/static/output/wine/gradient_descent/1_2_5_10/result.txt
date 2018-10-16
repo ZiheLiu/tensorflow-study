@@ -1,0 +1,400 @@
+epoch: 1, gradient1_norm: 226.007898, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 2.195 ]
+ [-0.5351]
+ [ 0.06  ]]
+epoch: 2, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-60.545 ]
+ [ -3.7968]
+ [ -0.53  ]]
+epoch: 3, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 6.585 ]
+ [-1.6053]
+ [ 0.18  ]]
+epoch: 4, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-56.155]
+ [ -4.867]
+ [ -0.41 ]]
+epoch: 5, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[10.975 ]
+ [-2.6755]
+ [ 0.3   ]]
+epoch: 6, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-51.765 ]
+ [ -5.9372]
+ [ -0.29  ]]
+epoch: 7, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[15.365 ]
+ [-3.7457]
+ [ 0.42  ]]
+epoch: 8, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-47.375 ]
+ [ -7.0074]
+ [ -0.17  ]]
+epoch: 9, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[19.755 ]
+ [-4.8159]
+ [ 0.54  ]]
+epoch: 10, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-42.985 ]
+ [ -8.0776]
+ [ -0.05  ]]
+epoch: 11, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[24.145 ]
+ [-5.8861]
+ [ 0.66  ]]
+epoch: 12, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-38.595 ]
+ [ -9.1478]
+ [  0.07  ]]
+epoch: 13, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[28.535 ]
+ [-6.9563]
+ [ 0.78  ]]
+epoch: 14, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-34.205]
+ [-10.218]
+ [  0.19 ]]
+epoch: 15, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[32.925 ]
+ [-8.0265]
+ [ 0.9   ]]
+epoch: 16, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-29.815 ]
+ [-11.2882]
+ [  0.31  ]]
+epoch: 17, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[37.315 ]
+ [-9.0967]
+ [ 1.02  ]]
+epoch: 18, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-25.425 ]
+ [-12.3584]
+ [  0.43  ]]
+epoch: 19, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 41.705 ]
+ [-10.1669]
+ [  1.14  ]]
+epoch: 20, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-21.035 ]
+ [-13.4286]
+ [  0.55  ]]
+epoch: 21, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 46.095 ]
+ [-11.2371]
+ [  1.26  ]]
+epoch: 22, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-16.645 ]
+ [-14.4988]
+ [  0.67  ]]
+epoch: 23, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 50.485 ]
+ [-12.3073]
+ [  1.38  ]]
+epoch: 24, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-12.255]
+ [-15.569]
+ [  0.79 ]]
+epoch: 25, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 54.875 ]
+ [-13.3775]
+ [  1.5   ]]
+epoch: 26, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -7.865 ]
+ [-16.6392]
+ [  0.91  ]]
+epoch: 27, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 59.265 ]
+ [-14.4477]
+ [  1.62  ]]
+epoch: 28, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -3.475 ]
+ [-17.7094]
+ [  1.03  ]]
+epoch: 29, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 63.655 ]
+ [-15.5179]
+ [  1.74  ]]
+epoch: 30, gradient1_norm: 6282.749706, loss: 3.150903, accuracy: 0.738462, weights:
+[[  0.915 ]
+ [-18.7796]
+ [  1.15  ]]
+epoch: 31, gradient1_norm: 2112.047599, loss: 10.060526, accuracy: 0.453846, weights:
+[[-20.1901803 ]
+ [-19.56264772]
+ [  0.96915036]]
+epoch: 32, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 46.9398197 ]
+ [-17.37114772]
+ [  1.67915036]]
+epoch: 33, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-15.8001803 ]
+ [-20.63284772]
+ [  1.08915036]]
+epoch: 34, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 51.3298197 ]
+ [-18.44134772]
+ [  1.79915036]]
+epoch: 35, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-11.4101803 ]
+ [-21.70304772]
+ [  1.20915036]]
+epoch: 36, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 55.7198197 ]
+ [-19.51154772]
+ [  1.91915036]]
+epoch: 37, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -7.0201803 ]
+ [-22.77324772]
+ [  1.32915036]]
+epoch: 38, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 60.1098197 ]
+ [-20.58174772]
+ [  2.03915036]]
+epoch: 39, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -2.6301803 ]
+ [-23.84344772]
+ [  1.44915036]]
+epoch: 40, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 64.4998197 ]
+ [-21.65194772]
+ [  2.15915036]]
+epoch: 41, gradient1_norm: 6282.749706, loss: 7.527474, accuracy: 0.584615, weights:
+[[  1.7598197 ]
+ [-24.91364772]
+ [  1.56915036]]
+epoch: 42, gradient1_norm: 5773.630785, loss: 10.060526, accuracy: 0.453846, weights:
+[[-55.90274715]
+ [-27.78035311]
+ [  1.02912429]]
+epoch: 43, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 11.22725285]
+ [-25.58885311]
+ [  1.73912429]]
+epoch: 44, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-51.51274715]
+ [-28.85055311]
+ [  1.14912429]]
+epoch: 45, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 15.61725285]
+ [-26.65905311]
+ [  1.85912429]]
+epoch: 46, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-47.12274715]
+ [-29.92075311]
+ [  1.26912429]]
+epoch: 47, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 20.00725285]
+ [-27.72925311]
+ [  1.97912429]]
+epoch: 48, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-42.73274715]
+ [-30.99095311]
+ [  1.38912429]]
+epoch: 49, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 24.39725285]
+ [-28.79945311]
+ [  2.09912429]]
+epoch: 50, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-38.34274715]
+ [-32.06115311]
+ [  1.50912429]]
+epoch: 51, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 28.78725285]
+ [-29.86965311]
+ [  2.21912429]]
+epoch: 52, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-33.95274715]
+ [-33.13135311]
+ [  1.62912429]]
+epoch: 53, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 33.17725285]
+ [-30.93985311]
+ [  2.33912429]]
+epoch: 54, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-29.56274715]
+ [-34.20155311]
+ [  1.74912429]]
+epoch: 55, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 37.56725285]
+ [-32.01005311]
+ [  2.45912429]]
+epoch: 56, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-25.17274715]
+ [-35.27175311]
+ [  1.86912429]]
+epoch: 57, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 41.95725285]
+ [-33.08025311]
+ [  2.57912429]]
+epoch: 58, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-20.78274715]
+ [-36.34195311]
+ [  1.98912429]]
+epoch: 59, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 46.34725285]
+ [-34.15045311]
+ [  2.69912429]]
+epoch: 60, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-16.39274715]
+ [-37.41215311]
+ [  2.10912429]]
+epoch: 61, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 50.73725285]
+ [-35.22065311]
+ [  2.81912429]]
+epoch: 62, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-12.00274715]
+ [-38.48235311]
+ [  2.22912429]]
+epoch: 63, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 55.12725285]
+ [-36.29085311]
+ [  2.93912429]]
+epoch: 64, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -7.61274715]
+ [-39.55255311]
+ [  2.34912429]]
+epoch: 65, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 59.51725285]
+ [-37.36105311]
+ [  3.05912429]]
+epoch: 66, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -3.22274715]
+ [-40.62275311]
+ [  2.46912429]]
+epoch: 67, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 63.90725285]
+ [-38.43125311]
+ [  3.17912429]]
+epoch: 68, gradient1_norm: 6282.749706, loss: 5.100003, accuracy: 0.661538, weights:
+[[  1.16725285]
+ [-41.69295311]
+ [  2.58912429]]
+epoch: 69, gradient1_norm: 3980.631060, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 40.94084404]
+ [-40.14119395]
+ [  3.03167447]]
+epoch: 70, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-21.79915596]
+ [-43.40289395]
+ [  2.44167447]]
+epoch: 71, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 45.33084404]
+ [-41.21139395]
+ [  3.15167447]]
+epoch: 72, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-17.40915596]
+ [-44.47309395]
+ [  2.56167447]]
+epoch: 73, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 49.72084404]
+ [-42.28159395]
+ [  3.27167447]]
+epoch: 74, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-13.01915596]
+ [-45.54329395]
+ [  2.68167447]]
+epoch: 75, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 54.11084404]
+ [-43.35179395]
+ [  3.39167447]]
+epoch: 76, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -8.62915596]
+ [-46.61349395]
+ [  2.80167447]]
+epoch: 77, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 58.50084404]
+ [-44.42199395]
+ [  3.51167447]]
+epoch: 78, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[ -4.23915596]
+ [-47.68369395]
+ [  2.92167447]]
+epoch: 79, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 62.89084404]
+ [-45.49219395]
+ [  3.63167447]]
+epoch: 80, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[  0.15084404]
+ [-48.75389395]
+ [  3.04167447]]
+epoch: 81, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 67.28084404]
+ [-46.56239395]
+ [  3.75167447]]
+epoch: 82, gradient1_norm: 6282.749706, loss: 8.360155, accuracy: 0.546154, weights:
+[[  4.54084404]
+ [-49.82409395]
+ [  3.16167447]]
+epoch: 83, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-58.19915596]
+ [-53.08579395]
+ [  2.57167447]]
+epoch: 84, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[  8.93084404]
+ [-50.89429395]
+ [  3.28167447]]
+epoch: 85, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-53.80915596]
+ [-54.15599395]
+ [  2.69167447]]
+epoch: 86, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 13.32084404]
+ [-51.96449395]
+ [  3.40167447]]
+epoch: 87, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-49.41915596]
+ [-55.22619395]
+ [  2.81167447]]
+epoch: 88, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 17.71084404]
+ [-53.03469395]
+ [  3.52167447]]
+epoch: 89, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-45.02915596]
+ [-56.29639395]
+ [  2.93167447]]
+epoch: 90, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 22.10084404]
+ [-54.10489395]
+ [  3.64167447]]
+epoch: 91, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-40.63915596]
+ [-57.36659395]
+ [  3.05167447]]
+epoch: 92, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 26.49084404]
+ [-55.17509395]
+ [  3.76167447]]
+epoch: 93, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-36.24915596]
+ [-58.43679395]
+ [  3.17167447]]
+epoch: 94, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 30.88084404]
+ [-56.24529395]
+ [  3.88167447]]
+epoch: 95, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-31.85915596]
+ [-59.50699395]
+ [  3.29167447]]
+epoch: 96, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 35.27084404]
+ [-57.31549395]
+ [  4.00167447]]
+epoch: 97, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-27.46915596]
+ [-60.57719395]
+ [  3.41167447]]
+epoch: 98, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 39.66084404]
+ [-58.38569395]
+ [  4.12167447]]
+epoch: 99, gradient1_norm: 6282.749706, loss: 10.060526, accuracy: 0.453846, weights:
+[[-23.07915596]
+ [-61.64739395]
+ [  3.53167447]]
+epoch: 100, gradient1_norm: 6716.951446, loss: 8.360155, accuracy: 0.546154, weights:
+[[ 44.05084404]
+ [-59.45589395]
+ [  4.24167447]]

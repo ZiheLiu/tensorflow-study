@@ -26,12 +26,12 @@ def _draw_line(param_a, param_b, min_x, max_x):
         min_x: float.
         max_x: float.
     """
-    plt.plot((min_x, max_x), (param_a * min_x + param_b, param_a * max_x + param_b))
+    plt.plot((min_x, max_x), (param_a * min_x + param_b, param_a * max_x + param_b), label='decision')
 
 
 class Train(object):
     def __init__(self):
-        self.data = Data()
+        self.data = Data(SHELL_ARGS.data_type)
         self.model = LogisticRegressionModel()
 
         self.print_data_list = list()
@@ -50,10 +50,11 @@ class Train(object):
                                                           constants.STOP_VALUE)
             loss = self.model.loss(self.data.source_data, self.data.target_data)
             self.loss_list.append(loss)
+            accuracy = self.model.accuracy(self.data.source_data, self.data.target_data)
 
             # print data
-            print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, weights:\n%s' % \
-                         (epoch_i, gradient1_norm, loss, str(self.model.weights))
+            print_data = 'epoch: %d, gradient1_norm: %.6f, loss: %.6f, accuracy: %.6f, weights:\n%s' % \
+                         (epoch_i, gradient1_norm, loss, accuracy, str(self.model.weights))
             self.print_data_list.append(print_data)
             print(print_data)
 
@@ -67,14 +68,14 @@ class Train(object):
 
             # early stop check
             # 梯度下降算法只迭代50次
-            if SHELL_ARGS.optimizer == 'gradient_descent' and epoch_i >= 50:
+            if SHELL_ARGS.optimizer == 'gradient_descent' and epoch_i >= 100:
                 break
 
             pre_loss = loss
             epoch_i += 1
 
-        output_dir = os.path.join(constants.OUTPUT_DIR, SHELL_ARGS.optimizer,
-                                  '%s_%s_%d_%d' % (constants.LABEL_0, constants.LABEL_1,
+        output_dir = os.path.join(constants.OUTPUT_DIR, SHELL_ARGS.data_type, SHELL_ARGS.optimizer,
+                                  '%s_%s_%d_%d' % (SHELL_ARGS.label_0, SHELL_ARGS.label_1,
                                                    SHELL_ARGS.feature_0, SHELL_ARGS.feature_1))
         if not os.path.isdir(output_dir):
             os.makedirs(output_dir)
@@ -83,12 +84,21 @@ class Train(object):
         self._save_loss_plot(output_dir)
 
     def _save_result_plot(self, output_dir):
-        plt.xlabel(constants.FEATURES[SHELL_ARGS.feature_0])
-        plt.ylabel(constants.FEATURES[SHELL_ARGS.feature_1])
+        plt.xlabel(self.data.feature_name_0())
+        plt.ylabel(self.data.feature_name_1())
 
-        colors = np.array(self.data.source_data.shape[0] * ['b'])
-        colors[np.reshape(self.data.target_data, (-1,)) == 1] = 'r'
-        plt.scatter(self.data.source_data[:, 0], self.data.source_data[:, 1], c=colors)
+        source_data_label_0 = self.data.source_data_label_0()
+        plt.scatter(source_data_label_0[:, 0],
+                    source_data_label_0[:, 1],
+                    label=self.data.label_0(),
+                    c='blue',
+                    alpha=0.5)
+        source_data_label_1 = self.data.source_data_label_1()
+        plt.scatter(source_data_label_1[:, 0],
+                    source_data_label_1[:, 1],
+                    label=self.data.label_1(),
+                    c='red',
+                    alpha=0.5)
 
         # w1 * x + w2 * y + b = 0
         # y = -w1/w2 * x - b/w2
@@ -96,6 +106,8 @@ class Train(object):
                    -self.model.weights[2] / self.model.weights[1],
                    self.data.source_min_bound[0],
                    self.data.source_max_bound[0])
+
+        plt.legend()
 
         plt.savefig(os.path.join(output_dir, 'result.png'))
 

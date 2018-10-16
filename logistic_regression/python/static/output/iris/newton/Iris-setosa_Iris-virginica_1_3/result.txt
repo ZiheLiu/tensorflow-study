@@ -1,0 +1,76 @@
+epoch: 1, gradient1_norm: 45.912008, loss: 0.144659, accuracy: 1.000000, weights:
+[[-0.61375371]
+ [ 2.00646947]
+ [-0.315786  ]]
+epoch: 2, gradient1_norm: 11.588571, loss: 0.052666, accuracy: 1.000000, weights:
+[[-0.98934411]
+ [ 3.23190097]
+ [-0.45962752]]
+epoch: 3, gradient1_norm: 4.209274, loss: 0.020295, accuracy: 1.000000, weights:
+[[-1.3381669 ]
+ [ 4.42349049]
+ [-0.62553487]]
+epoch: 4, gradient1_norm: 1.575911, loss: 0.007975, accuracy: 1.000000, weights:
+[[-1.67859459]
+ [ 5.6450408 ]
+ [-0.8315837 ]]
+epoch: 5, gradient1_norm: 0.595300, loss: 0.003159, accuracy: 1.000000, weights:
+[[-2.01741752]
+ [ 6.91986886]
+ [-1.08483651]]
+epoch: 6, gradient1_norm: 0.225492, loss: 0.001255, accuracy: 1.000000, weights:
+[[-2.35889709]
+ [ 8.26042104]
+ [-1.38785094]]
+epoch: 7, gradient1_norm: 0.085423, loss: 0.000498, accuracy: 1.000000, weights:
+[[-2.70737998]
+ [ 9.67467768]
+ [-1.73813956]]
+epoch: 8, gradient1_norm: 0.032316, loss: 0.000197, accuracy: 1.000000, weights:
+[[-3.0676108 ]
+ [11.16724984]
+ [-2.12852221]]
+epoch: 9, gradient1_norm: 0.012195, loss: 0.000077, accuracy: 1.000000, weights:
+[[-3.44395336]
+ [12.73864777]
+ [-2.54863501]]
+epoch: 10, gradient1_norm: 0.004586, loss: 0.000030, accuracy: 1.000000, weights:
+[[-3.83920361]
+ [14.38445977]
+ [-2.98739601]]
+epoch: 11, gradient1_norm: 0.001718, loss: 0.000011, accuracy: 1.000000, weights:
+[[-4.25377289]
+ [16.09570317]
+ [-3.43554117]]
+epoch: 12, gradient1_norm: 0.000641, loss: 0.000004, accuracy: 1.000000, weights:
+[[-4.68582916]
+ [17.86062734]
+ [-3.88697962]]
+epoch: 13, gradient1_norm: 0.000239, loss: 0.000002, accuracy: 1.000000, weights:
+[[-5.13223897]
+ [19.66711209]
+ [-4.33861301]]
+epoch: 14, gradient1_norm: 0.000088, loss: 0.000001, accuracy: 1.000000, weights:
+[[-5.58962415]
+ [21.50451711]
+ [-4.78934332]]
+epoch: 15, gradient1_norm: 0.000033, loss: 0.000000, accuracy: 1.000000, weights:
+[[-6.05503081]
+ [23.36448316]
+ [-5.239101  ]]
+epoch: 16, gradient1_norm: 0.000012, loss: 0.000000, accuracy: 1.000000, weights:
+[[-6.52615897]
+ [25.24089902]
+ [-5.6882234 ]]
+epoch: 17, gradient1_norm: 0.000004, loss: 0.000000, accuracy: 1.000000, weights:
+[[-7.00132952]
+ [27.12947726]
+ [-6.13714316]]
+epoch: 18, gradient1_norm: 0.000002, loss: 0.000000, accuracy: 1.000000, weights:
+[[-7.47935648]
+ [29.0272625 ]
+ [-6.5862573 ]]
+epoch: 19, gradient1_norm: 0.000001, loss: 0.000000, accuracy: 1.000000, weights:
+[[-7.47935648]
+ [29.0272625 ]
+ [-6.5862573 ]]

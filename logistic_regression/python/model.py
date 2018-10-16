@@ -1,4 +1,5 @@
 import numpy as np
+from numpy import ndarray
 
 import constants
 from utils.shell_args import SHELL_ARGS
@@ -30,13 +31,13 @@ class LogisticRegressionModel(object):
         f(x) = 1 / (1 + e^(weights * x + bias)).
 
         Parameters:
-            source_data: array.
+            source_data: ndarray.
                 shape: [n, 2].
                 每行是一条数据的两个特征值.
             bias_mask: bool.
                 是否要对source_data处理，加上一列1.
         Return:
-            out: array.
+            out: ndarray.
                 shape: [n, 1].
                 每行是一条数据的label.
         """
@@ -72,6 +73,13 @@ class LogisticRegressionModel(object):
                  + (1 - target_data) * np.log(self.void_zero((1 - predicted_data)))
         return -np.sum(matrix) / source_data.shape[0]
 
+    def accuracy(self, source_data, target_data):
+        predictions = self.get_predicted_labels(source_data)
+        condition = predictions > 0.5
+        predictions[condition] = 1.0
+        predictions[~condition] = 0.0
+        return (predictions == target_data).mean()
+
     def optimize(self, source_data, target_data, stop_value):
         """根据源数据和目标数据, 利用优化算法, 对参数weights进行更新.
 
@@ -84,10 +92,10 @@ class LogisticRegressionModel(object):
             weights = weights - learning_rate * gradient1.
 
         Parameters:
-            source_data: array.
+            source_data: ndarray.
                 shape: [n, 2].
                 每行是一条数据的两个特征值.
-            target_data: array.
+            target_data: ndarray.
                 shape: [n].
                 每个元素是label值, 0或1.
             stop_value: float.
@@ -110,6 +118,7 @@ class LogisticRegressionModel(object):
         if gradient1_norm < stop_value:
             return True, gradient1_norm
 
+        print(SHELL_ARGS.optimizer)
         if SHELL_ARGS.optimizer == 'gradient_descent':
             delta = constants.LEARNING_RATE * gradient1
         else:

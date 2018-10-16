@@ -1,0 +1,80 @@
+epoch: 1, gradient1_norm: 102.801021, loss: 0.141173, accuracy: 1.000000, weights:
+[[-0.41707428]
+ [ 0.90183733]
+ [-1.83067594]]
+epoch: 2, gradient1_norm: 26.602588, loss: 0.049511, accuracy: 1.000000, weights:
+[[-0.69577833]
+ [ 1.44639632]
+ [-2.80578496]]
+epoch: 3, gradient1_norm: 9.591256, loss: 0.018281, accuracy: 1.000000, weights:
+[[-0.96004453]
+ [ 1.96329345]
+ [-3.71646351]]
+epoch: 4, gradient1_norm: 3.543442, loss: 0.006852, accuracy: 1.000000, weights:
+[[-1.22019221]
+ [ 2.47841142]
+ [-4.62422603]]
+epoch: 5, gradient1_norm: 1.318139, loss: 0.002580, accuracy: 1.000000, weights:
+[[-1.48025532]
+ [ 2.99920568]
+ [-5.54344049]]
+epoch: 6, gradient1_norm: 0.491232, loss: 0.000972, accuracy: 1.000000, weights:
+[[-1.74250018]
+ [ 3.52799363]
+ [-6.47577403]]
+epoch: 7, gradient1_norm: 0.183054, loss: 0.000366, accuracy: 1.000000, weights:
+[[-2.00859402]
+ [ 4.06525585]
+ [-7.41846871]]
+epoch: 8, gradient1_norm: 0.068157, loss: 0.000137, accuracy: 1.000000, weights:
+[[-2.27984401]
+ [ 4.61077498]
+ [-8.36758504]]
+epoch: 9, gradient1_norm: 0.025349, loss: 0.000052, accuracy: 1.000000, weights:
+[[-2.55717186]
+ [ 5.1640889 ]
+ [-9.31958693]]
+epoch: 10, gradient1_norm: 0.009417, loss: 0.000019, accuracy: 1.000000, weights:
+[[ -2.84107502]
+ [  5.72467784]
+ [-10.27203865]]
+epoch: 11, gradient1_norm: 0.003494, loss: 0.000007, accuracy: 1.000000, weights:
+[[ -3.1316493]
+ [  6.2920363]
+ [-11.2237321]]
+epoch: 12, gradient1_norm: 0.001295, loss: 0.000003, accuracy: 1.000000, weights:
+[[ -3.42866852]
+ [  6.86569381]
+ [-12.17448343]]
+epoch: 13, gradient1_norm: 0.000480, loss: 0.000001, accuracy: 1.000000, weights:
+[[ -3.73169062]
+ [  7.44521464]
+ [-13.12479421]]
+epoch: 14, gradient1_norm: 0.000177, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -4.04016068]
+ [  8.03019124]
+ [-14.07551242]]
+epoch: 15, gradient1_norm: 0.000066, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -4.35349299]
+ [  8.62023774]
+ [-15.02756515]]
+epoch: 16, gradient1_norm: 0.000024, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -4.6711265 ]
+ [  9.21498575]
+ [-15.98178438]]
+epoch: 17, gradient1_norm: 0.000009, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -4.99255553]
+ [  9.81408252]
+ [-16.93881719]]
+epoch: 18, gradient1_norm: 0.000003, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -5.3173418 ]
+ [ 10.4171908 ]
+ [-17.89909856]]
+epoch: 19, gradient1_norm: 0.000001, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -5.64511412]
+ [ 11.02398954]
+ [-18.86286363]]
+epoch: 20, gradient1_norm: 0.000000, loss: 0.000000, accuracy: 1.000000, weights:
+[[ -5.64511412]
+ [ 11.02398954]
+ [-18.86286363]]
