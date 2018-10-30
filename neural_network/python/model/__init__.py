@@ -1,4 +1,4 @@
-from .model import NeuralNetwork
+from .neural_network import NeuralNetwork
 
 __all = [
     'NeuralNetwork'
