@@ -83,7 +83,3 @@ class Data(object):
         return train_source_data, train_target_data, \
                eval_source_data, eval_target_data, \
                test_source_data, test_target_data
-
-
-if __name__ == '__main__':
-    print(Data('static/input/iris/iris').output_size())

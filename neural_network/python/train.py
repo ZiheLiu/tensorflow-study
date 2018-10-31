@@ -7,6 +7,7 @@ import constants
 from data import Data
 from model import NeuralNetwork
 from utils import file_utils
+from utils.log_utils import LOGGER
 from utils.shell_args import SHELL_ARGS
 
 
@@ -68,6 +69,7 @@ class Train(object):
 
         train_loss_list = list()
         eval_loss_list = list()
+
         pre_train_loss_value = 1000
         pre_eval_loss_value = 1000
         increase_times = 0
@@ -76,13 +78,13 @@ class Train(object):
             cur_train_loss_value = self.train_epoch()
             cur_eval_loss_value = self.eval_epoch()
 
-            print('Epoch_i: %d, train loss: %.6f, eval loss: %.6f' %
-                  (epoch_i, cur_train_loss_value, cur_eval_loss_value))
+            LOGGER.info('Epoch_i: %d, train loss: %.6f, eval loss: %.6f' %
+                            (epoch_i, cur_train_loss_value, cur_eval_loss_value))
 
             if cur_train_loss_value > pre_train_loss_value or cur_eval_loss_value > pre_eval_loss_value:
                 increase_times += 1
                 if increase_times >= 5:
-                    print('Early stop, increase_times >= 5')
+                    LOGGER.info('Early stop, increase_times >= 5')
                     break
             pre_train_loss_value = cur_train_loss_value
             pre_eval_loss_value = cur_eval_loss_value
@@ -97,8 +99,7 @@ class Train(object):
         eval_accurate = self._calc_accurate(self.data.eval_batches, eval_batches_sum)
         test_accurate = self._calc_accurate(self.data.test_batches, test_batches_sum)
 
-        print('train_accurate: %.6f, eval_accurate: %.6f, test_accurate: %.6f' % (
-        train_accurate, eval_accurate, test_accurate))
+        LOGGER.info('train_accurate: %.6f, eval_accurate: %.6f, test_accurate: %.6f' % (train_accurate, eval_accurate, test_accurate))
 
 
 if __name__ == '__main__':
