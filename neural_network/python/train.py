@@ -1,8 +1,12 @@
+import os
+
 import numpy as np
+import matplotlib.pyplot as plot
 
 import constants
 from data import Data
 from model import NeuralNetwork
+from utils import file_utils
 from utils.shell_args import SHELL_ARGS
 
 
@@ -27,27 +31,50 @@ class Train(object):
         accurate /= batches_sum
         return accurate
 
+    def _save_loss_plot(self, output_dir, train_loss_list, eval_loss_list):
+        plot.clf()
+
+        plot.xlabel('epoch')
+        plot.ylabel('loss')
+
+        data_x = range(1, 1 + len(train_loss_list))
+        plot.plot(data_x, train_loss_list, color='blue', label='train_loss')
+        plot.plot(data_x, eval_loss_list, color='red', label='eval_loss')
+
+        plot.legend()
+
+        plot.savefig(os.path.join(output_dir, 'loss.png'))
+
+    def train_epoch(self):
+        train_loss_value = 0
+        for train_source_batch, train_target_batch in self.data.train_batches(self.batch_size):
+            loss_value = self.model.train(train_source_batch, train_target_batch, self.learning_rate)
+            train_loss_value += loss_value
+        train_loss_value /= self.data.train_batches_sum(self.batch_size)
+        return train_loss_value
+
+    def eval_epoch(self):
+        eval_loss_value = 0
+        for eval_source_batch, eval_target_batch in self.data.eval_batches(self.batch_size):
+            loss_value = self.model.loss(eval_source_batch, eval_target_batch)
+            eval_loss_value += loss_value
+        eval_loss_value /= self.data.eval_batches_sum(self.batch_size)
+        return eval_loss_value
+
     def train(self):
         train_batches_sum = self.data.train_batches_sum(self.batch_size)
         eval_batches_sum = self.data.eval_batches_sum(self.batch_size)
         test_batches_sum = self.data.test_batches_sum(self.batch_size)
 
+        train_loss_list = list()
+        eval_loss_list = list()
         pre_train_loss_value = 1000
         pre_eval_loss_value = 1000
         increase_times = 0
         for epoch_i in range(constants.EPOCHS):
             # self.data.reshuffle_train_data()
-            cur_train_loss_value = 0
-            for train_source_batch, train_target_batch in self.data.train_batches(self.batch_size):
-                loss_value = self.model.train(train_source_batch, train_target_batch, self.learning_rate)
-                cur_train_loss_value += loss_value
-            cur_train_loss_value /= train_batches_sum
-
-            cur_eval_loss_value = 0
-            for eval_source_batch, eval_target_batch in self.data.eval_batches(self.batch_size):
-                loss_value = self.model.loss(eval_source_batch, eval_target_batch)
-                cur_eval_loss_value += loss_value
-            cur_eval_loss_value /= eval_batches_sum
+            cur_train_loss_value = self.train_epoch()
+            cur_eval_loss_value = self.eval_epoch()
 
             print('Epoch_i: %d, train loss: %.6f, eval loss: %.6f' %
                   (epoch_i, cur_train_loss_value, cur_eval_loss_value))
@@ -59,12 +86,19 @@ class Train(object):
                     break
             pre_train_loss_value = cur_train_loss_value
             pre_eval_loss_value = cur_eval_loss_value
+            train_loss_list.append(cur_train_loss_value)
+            eval_loss_list.append(cur_eval_loss_value)
+
+        output_dir = os.path.join(constants.OUTPUT_DIR, self.data.name)
+        file_utils.safe_mkdirs(output_dir)
+        self._save_loss_plot(output_dir, train_loss_list, eval_loss_list)
 
         train_accurate = self._calc_accurate(self.data.train_batches, train_batches_sum)
         eval_accurate = self._calc_accurate(self.data.eval_batches, eval_batches_sum)
         test_accurate = self._calc_accurate(self.data.test_batches, test_batches_sum)
 
-        print('train_accurate: %.6f, eval_accurate: %.6f, test_accurate: %.6f' % (train_accurate, eval_accurate, test_accurate))
+        print('train_accurate: %.6f, eval_accurate: %.6f, test_accurate: %.6f' % (
+        train_accurate, eval_accurate, test_accurate))
 
 
 if __name__ == '__main__':

@@ -4,6 +4,7 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(ROOT_DIR, 'static')
 INPUT_DIR = os.path.join(STATIC_DIR, 'input')
+OUTPUT_DIR = os.path.join(STATIC_DIR, 'output')
 
 TEST_RATE = 0.10
 EVAL_RATE = 0.10 + TEST_RATE

@@ -8,6 +8,7 @@ from utils import file_utils
 class Data(object):
     def __init__(self, data_prefix):
         self.data_prefix = data_prefix
+        self.name = os.path.split(data_prefix)[-1]
 
         self.target_name2id = self._read_target_vocab()
 
