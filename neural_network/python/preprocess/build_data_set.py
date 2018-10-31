@@ -5,13 +5,15 @@ from utils import file_utils
 from utils.shell_args import SHELL_ARGS
 
 
-def build_data_set(raw_data_path, write_prefix, target_idx):
+def build_data_set(raw_data_path, write_prefix, target_idx, delimiter=',', skip_head=False):
     source_lines = list()
     target_lines = list()
     target_vocab = dict()
     lines = file_utils.read_file_to_str(raw_data_path).split('\n')
+    if skip_head:
+        lines = lines[1:]
     for line in lines:
-        columns = line.split(',')
+        columns = line.split(delimiter)
 
         source_lines.append(','.join([word for idx, word in enumerate(columns) if idx != target_idx]))
 
@@ -56,4 +58,4 @@ def build_data_set(raw_data_path, write_prefix, target_idx):
 
 
 if __name__ == '__main__':
-    build_data_set(SHELL_ARGS.raw_data_path, SHELL_ARGS.prefix, 4)
+    build_data_set(SHELL_ARGS.raw_data_path, SHELL_ARGS.prefix, 11, delimiter=';', skip_head=True)

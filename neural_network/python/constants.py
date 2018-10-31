@@ -18,7 +18,5 @@ SUFFIX_TEST_TARGET_DATA = '.test.target'
 SUFFIX_TARGET_VOCAB = '.target.vocab.json'
 
 # hyper params
-LEARNING_RATE = 0.01
-HIDDEN_SIZE = 32
-BATCH_SIZE = 8
-EPOCHS = 300
+LEARNING_RATE = 0.001
+EPOCHS = 500
