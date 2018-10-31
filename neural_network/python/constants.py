@@ -18,6 +18,6 @@ SUFFIX_TARGET_VOCAB = '.target.vocab.json'
 
 # hyper params
 LEARNING_RATE = 0.01
-HIDDEN_SIZE = 256
+HIDDEN_SIZE = 32
 BATCH_SIZE = 8
-EPOCHS = 200
+EPOCHS = 300

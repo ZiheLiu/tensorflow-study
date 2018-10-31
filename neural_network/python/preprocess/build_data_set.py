@@ -28,17 +28,14 @@ def build_data_set(raw_data_path, write_prefix, target_idx):
     source_data = source_data[index_list]
     target_data = target_data[index_list]
 
-    idx = int(len(source_data) * constants.EVAL_RATE)
-    train_source_data = source_data[idx:]
-    train_target_data = target_data[idx:]
-
-    rest_source_data = source_data[: idx]
-    rest_target_data = target_data[: idx]
-    idx = int(len(source_data) * constants.TEST_RATE)
-    test_source_data = rest_source_data[: idx]
-    test_target_data = rest_target_data[: idx]
-    eval_source_data = rest_source_data[idx:]
-    eval_target_data = rest_target_data[idx:]
+    test_start_idx = int(len(source_data) * constants.TEST_RATE)
+    eval_start_idx = int(len(source_data) * constants.EVAL_RATE)
+    test_source_data = source_data[: test_start_idx]
+    test_target_data = target_data[: test_start_idx]
+    eval_source_data = source_data[test_start_idx: eval_start_idx]
+    eval_target_data = target_data[test_start_idx: eval_start_idx]
+    train_source_data = source_data[eval_start_idx:]
+    train_target_data = target_data[eval_start_idx:]
 
     file_utils.write_str_to_file("%s%s" % (write_prefix, constants.SUFFIX_TRAIN_SOURCE_DATA),
                                  '\n'.join(train_source_data))

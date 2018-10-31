@@ -18,8 +18,8 @@ class FullyConnectedLayer(object):
         self.batch_size = batch_size
         self.activator = activator
 
-        # self.weights = np.random.uniform(-0.1, 0.1, (input_size, output_size))
-        self.weights = np.zeros((input_size, output_size))
+        self.weights = np.random.uniform(-0.1, 0.1, (input_size, output_size))
+        # self.weights = np.zeros((input_size, output_size))
         self.bia = np.zeros((1, output_size))
 
         self.input = np.zeros((batch_size, input_size))

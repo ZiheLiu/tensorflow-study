@@ -42,13 +42,13 @@ class Train(object):
 
             cur_train_loss_value /= self.data.train_batches_sum(constants.BATCH_SIZE)
             cur_eval_loss_value /= self.data.eval_batches_sum(constants.BATCH_SIZE)
-            print(
-                'Epoch_i: %d, train loss: %.6f, eval loss: %.6f' % (epoch_i, cur_train_loss_value, cur_eval_loss_value))
+            print('Epoch_i: %d, train loss: %.6f, eval loss: %.6f' %
+                  (epoch_i, cur_train_loss_value, cur_eval_loss_value))
 
             if cur_train_loss_value > pre_train_loss_value or cur_eval_loss_value > pre_eval_loss_value:
                 increase_times += 1
                 if increase_times >= 5:
-                    print('Early stop, increase_times >= 10')
+                    print('Early stop, increase_times >= 5')
                     break
             pre_train_loss_value = cur_train_loss_value
             pre_eval_loss_value = cur_eval_loss_value
