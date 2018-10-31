@@ -1,13 +1,13 @@
 import numpy as np
 
 from .fully_connected_layer import FullyConnectedLayer
-from .activator import SigmoidActivator, SoftmaxActivator
+from .activator import SigmoidActivator, SoftmaxActivator, TanhActivator, ReluActivator
 
 
 class NeuralNetwork(object):
-    def __init__(self, input_size: int, hidden_size: int, output_size: int, batch_size: int):
+    def __init__(self, input_size: int, hidden_sizes: list, output_size: int, batch_size: int):
         self.input_size = input_size
-        self.hidden_size = hidden_size
+        self.hidden_sizes = hidden_sizes
         self.output_size = output_size
         self.batch_size = batch_size
 
@@ -16,10 +16,17 @@ class NeuralNetwork(object):
 
     def _build_model(self):
         self.layers.append(FullyConnectedLayer(input_size=self.input_size,
-                                               output_size=self.hidden_size,
+                                               output_size=self.hidden_sizes[0],
                                                batch_size=self.batch_size,
-                                               activator=SigmoidActivator()))
-        self.layers.append(FullyConnectedLayer(input_size=self.hidden_size,
+                                               activator=TanhActivator()))
+
+        for i in range(0, len(self.hidden_sizes) - 1):
+            self.layers.append(FullyConnectedLayer(input_size=self.hidden_sizes[i],
+                                                   output_size=self.hidden_sizes[i + 1],
+                                                   batch_size=self.batch_size,
+                                                   activator=TanhActivator()))
+
+        self.layers.append(FullyConnectedLayer(input_size=self.hidden_sizes[-1],
                                                output_size=self.output_size,
                                                batch_size=self.batch_size,
                                                activator=SoftmaxActivator()))
