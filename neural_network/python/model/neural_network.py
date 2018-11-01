@@ -1,18 +1,28 @@
 import numpy as np
 
 from .fully_connected_layer import FullyConnectedLayer
-from .activator import SigmoidActivator, SoftmaxActivator, TanhActivator, ReluActivator
+from .activator import SigmoidActivator, SoftmaxActivator, TanhActivator
 
 
 class NeuralNetwork(object):
-    def __init__(self, input_size: int, hidden_sizes: list, output_size: int, batch_size: int):
+    def __init__(self, input_size: int, hidden_sizes: list, output_size: int, batch_size: int, activator: str):
         self.input_size = input_size
         self.hidden_sizes = hidden_sizes
         self.output_size = output_size
         self.batch_size = batch_size
 
+        self.activator = self._get_activator(activator)
+
         self.layers = list()
         self._build_model()
+
+    def _get_activator(self, activator: str):
+        if activator == 'sigmoid':
+            return SigmoidActivator
+        elif activator == 'tanh':
+            return TanhActivator
+        else:
+            raise ValueError('Argument activator is invalid: %s' % activator)
 
     def _build_model(self):
         self.layers.append(FullyConnectedLayer(input_size=self.input_size,

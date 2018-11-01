@@ -12,16 +12,18 @@ from utils.shell_args import SHELL_ARGS
 
 
 class Train(object):
-    def __init__(self, hidden_sizes, batch_size, learning_rate):
+    def __init__(self, hidden_sizes, batch_size, learning_rate, activator):
         self.hidden_sizes = hidden_sizes
         self.batch_size = batch_size
         self.learning_rate = learning_rate
+        self.activator = activator
 
         self.data = Data(SHELL_ARGS.prefix)
         self.model = NeuralNetwork(self.data.input_size(),
                                    self.hidden_sizes,
                                    self.data.output_size(),
-                                   self.batch_size)
+                                   self.batch_size,
+                                   self.activator)
 
     def _calc_accurate(self, batches_func, batches_sum):
         accurate = 0
@@ -63,7 +65,8 @@ class Train(object):
         return eval_loss_value
 
     def train(self):
-        LOGGER.info('batch_size: %d, hidden_sizes: %s, learning: %f' % (self.batch_size, str(self.hidden_sizes), self.learning_rate))
+        LOGGER.info('activator: %s, batch_size: %d, hidden_sizes: %s, learning: %f' %
+                    (self.activator, self.batch_size, str(self.hidden_sizes), self.learning_rate))
 
         train_batches_sum = self.data.train_batches_sum(self.batch_size)
         eval_batches_sum = self.data.eval_batches_sum(self.batch_size)
@@ -107,4 +110,5 @@ class Train(object):
 if __name__ == '__main__':
     Train(hidden_sizes=SHELL_ARGS.hidden_sizes,
           batch_size=SHELL_ARGS.batch_size,
-          learning_rate=SHELL_ARGS.learning_rate).train()
+          learning_rate=SHELL_ARGS.learning_rate,
+          activator=SHELL_ARGS.activator).train()

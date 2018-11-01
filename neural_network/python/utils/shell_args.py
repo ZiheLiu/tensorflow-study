@@ -8,6 +8,7 @@ def add_arguments(parser: argparse.ArgumentParser):
     parser.add_argument('--hidden_sizes', type=str, default='32')
     parser.add_argument('--batch_size', type=int, default=8)
     parser.add_argument('--learning_rate', type=float, default=0.01)
+    parser.add_argument('--activator', type=str, default='sigmoid')
 
 
 _parser = argparse.ArgumentParser()
