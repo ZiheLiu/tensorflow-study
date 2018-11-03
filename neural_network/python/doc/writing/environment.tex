@@ -1,0 +1,33 @@
+\section{Environment}
+\vspace*{-.05in}
+
+The version of Python requires as least 3.5. Run the following command in the shell to install third party dependencies.
+\begin{lstlisting}[language=bash]
+$ pip install -r requirements
+\end{lstlisting}
+
+To train the Neural Network, we can run the command "python train.py" with the arguments in the Table \ref{table:command}.
+\begin{table*}[hbt]
+	\caption{The arguments for train.py}
+	\label{table:command}
+	
+	\centering
+	\begin{tabular}{l|l|l}		
+		Arguments		&Introduction								&Type \\ \hline
+		prefix	 		&The prefix of data set path	.				&str	 \\
+		hidden\_sizes 	&The hidden size of each hidden layer.		&multiple numbers spitted by ','. Eg: '12,12,12' \\
+		batch\_size	 	&The size of batch.							&int, default is 8 \\
+		learning\_rate	&The learning rate							&float, default is 0.01 \\
+		activator		&The activator of hidden size				&'sigmoid' or 'tanh'
+	\end{tabular}
+\end{table*}
+For example, the following command is to train Neural Network on iris data set with specific hyper parameters.
+\begin{lstlisting}[language=bash]
+$ python train.py \
+    --prefix=static/input/iris/iris \
+    --hidden_sizes=32 \
+    --learning_rate=0.01 \
+    --batch_size=8 \
+    --activator=tanh                 
+\end{lstlisting}
+

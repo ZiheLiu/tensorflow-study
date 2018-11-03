@@ -1,0 +1,58 @@
+%!TEX root=seke.tex
+% mainfile: seke.tex
+
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage[table]{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{latex8}
+\usepackage{times}
+\usepackage{inconsolata}
+\usepackage{pifont}
+
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+\usepackage{amsmath,bm,times}
+\usepackage{verbatim}
+
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{doi}{\lfoot{DOI reference number: placeholder}}
+
+\usepackage[small,compact]{titlesec}
+
+\usepackage{listings}
+
+\pagenumbering{gobble}
+
+\newcommand{\goallegheny}{$^{\mbox{\footnotesize \ding{72}}}$}
+\newcommand{\gosheffield}{$^{\mbox{\footnotesize \ding{73}}}$}
+\newcommand{\gospace}{$\;$}
+
+
+\begin{document}
+
+
+\title{\vspace*{-.6in}Assignment2 Neural Network\vspace*{-.1in}}
+\author{
+	Zihe Liu
+}
+\affiliation{
+ 	1831581
+}
+\maketitle
+
+
+
+\input{writing/introduction}
+\input{writing/environment}
+\input{writing/data_set}
+\input{writing/modules}
+\input{writing/evaluation}
+\input{writing/conclusion}
+
+\end{document}

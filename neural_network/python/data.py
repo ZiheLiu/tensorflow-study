@@ -13,8 +13,8 @@ class Data(object):
         self.target_name2id = self._read_target_vocab()
 
         self.train_source_data, self.train_target_data, \
-        self.eval_source_data, self.eval_target_data, \
-        self.test_source_data, self.test_target_data = self._read_data_set()
+            self.eval_source_data, self.eval_target_data, \
+            self.test_source_data, self.test_target_data = self._read_data_set()
 
     def input_size(self):
         return self.train_source_data.shape[1]

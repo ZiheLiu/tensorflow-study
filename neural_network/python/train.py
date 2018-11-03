@@ -13,6 +13,10 @@ from utils.shell_args import SHELL_ARGS
 
 class Train(object):
     def __init__(self, hidden_sizes, batch_size, learning_rate, activator):
+        """The entry of project.
+
+        Load data and build Neural Network model.
+        """
         self.hidden_sizes = hidden_sizes
         self.batch_size = batch_size
         self.learning_rate = learning_rate
@@ -25,7 +29,16 @@ class Train(object):
                                    self.batch_size,
                                    self.activator)
 
-    def _calc_accurate(self, batches_func, batches_sum):
+    def _calc_accurate(self, batches_func, batches_sum: int) -> float:
+        """Calculate accurate with batch data.
+
+        Args:
+            batches_func: The iterable method to generate batch data every iteration.
+            batches_sum: The total number of batch groups of all data.
+
+        Return:
+            The accuracy of batch data.
+        """
         accurate = 0
         for test_source_batch, test_target_batch in batches_func(self.batch_size):
             predictions = self.model.predict(test_source_batch)
@@ -34,7 +47,8 @@ class Train(object):
         accurate /= batches_sum
         return accurate
 
-    def _save_loss_plot(self, output_dir, train_loss_list, eval_loss_list):
+    def _save_loss_plot(self, output_dir: str, train_loss_list: list, eval_loss_list: list):
+        """Draw the curves between iteration and loss value for train set and validation set."""
         plot.clf()
 
         plot.xlabel('epoch')
@@ -48,7 +62,12 @@ class Train(object):
 
         plot.savefig(os.path.join(output_dir, 'loss.png'))
 
-    def train_epoch(self):
+    def train_epoch(self) -> float:
+        """Train all training batch data to optimize the weights and bias in layers.
+
+        Return:
+            The average loss value of training data set.
+        """
         train_loss_value = 0
         for train_source_batch, train_target_batch in self.data.train_batches(self.batch_size):
             loss_value = self.model.train(train_source_batch, train_target_batch, self.learning_rate)
@@ -56,7 +75,12 @@ class Train(object):
         train_loss_value /= self.data.train_batches_sum(self.batch_size)
         return train_loss_value
 
-    def eval_epoch(self):
+    def eval_epoch(self) -> float:
+        """Calculate loss value of validation data set.
+
+        Return:
+            The average loss value of validation data set.
+        """
         eval_loss_value = 0
         for eval_source_batch, eval_target_batch in self.data.eval_batches(self.batch_size):
             loss_value = self.model.loss(eval_source_batch, eval_target_batch)
@@ -65,6 +89,17 @@ class Train(object):
         return eval_loss_value
 
     def train(self):
+        """Train the model with training data set, validation set and test set.
+
+        At each iteration,
+            optimize the learnable parameters firstly,
+            and then calculate the loss value of training data set and validation data set.
+
+            If the loss value increases more than 5 times, early stop training.
+
+        After training stopped, calculate the average accuracy respectively on training set, validation set and test set.
+        """
+
         LOGGER.info('activator: %s, batch_size: %d, hidden_sizes: %s, learning: %f' %
                     (self.activator, self.batch_size, str(self.hidden_sizes), self.learning_rate))
 
