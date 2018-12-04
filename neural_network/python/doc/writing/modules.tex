@@ -12,10 +12,6 @@ $ pip freeze > requirements
 \subsection{preprocess/}
 The module \textsl{preprocess/} is to preprocess the raw data set into fixed formal file. Firstly it reshuffle the data set and then divide the raw data set into train, validation and test set by 80\%, 10\% and 10\%.
 
-As the model optimizes the learnable parameters on the training set, the loss value on the training set is gradually reduced. But when the number iterations is too big, the model will learn the features specific to this training set but not universal features. As a result, the model is overfitting and accuracy decreases.
-
- So we use training set and validation set to train model and decide whether to early stop. At each iteration, we firstly use training data set to optimize the model with SGD algorithm and respectively calculate average loss values of training data and validation data. If the average loss values of training data or validation data increases 5 times, which means loss value on validation data set has converged and will be overfitting if continue training, we early stop the training.
-
 \subsection{data.py}
 \textsl{data.py} is to read the preprocessed data set and store \textsl{train\_source\_data}, \textsl{train\_target\_data}, \textsl{eval\_source\_data}, \textsl{eval\_target\_data}, \textsl{test\_source\_data} and \textsl{test\_eval\_data} in the instance of Class \textsl{Data}. Each instance of target data is an one hot vector full of zero except the position whose index is the relevant category. For example, if the category of a data instance is 2 with 4 categories in all instances, then the target data of this instance is [0, 0, 1, 0].
 
@@ -85,6 +81,8 @@ It also provides methods to train model with batch source data and relevant targ
 
 \subsection{train.py}
 In this module, we train the Neural Network model using different data sets and hyper parameters. We use batch data to train the model, and use batch Stochastic Gradient Descent(SGD) algorithm to optimize the parameters of the  model. At each iteration, we firstly optimize the model on train data set and calculate the average loss value of it. Then we calculate the average loss value on validation data set without optimizing model. And if the loss value of train data or validation data increases more than 5 times, we early stop training.
+
+As for learning rate, after each training iteration, if the loss value decreases, then the learning rate is increased 5\%. Otherwise the learning rate is decreased 50\%.
 
 After finishing training, respectively calculate accuracy rate in train data set, validation data set and test data set.
 

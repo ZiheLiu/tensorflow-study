@@ -5,6 +5,7 @@ from model.activator import Activator
 
 class SoftmaxActivator(Activator):
     def forward(self, linear_input):
+        linear_input -= np.max(linear_input, axis=1, keepdims=True)
         exp_input = np.exp(linear_input)
         exp_sum = np.sum(exp_input, axis=1, keepdims=True)
         return exp_input / exp_sum

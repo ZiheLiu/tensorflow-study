@@ -4,3 +4,5 @@ We implement the fully connected Neural Network based on Python and numpy, and t
 But there are also some limitations in the current model. We only use the fully connected layer. But when the numbers of neurons and features is much larger, the speed of calculations will be very slow. We can use convolutional neural network when the number of neurons are larger.
 
 What's more, if the depth of hidden layer is larger, the problems of gradient vanishing and gradient exploding will be easier to occur. We can use drop out mechanism to avoid them, that is, the model drops out randomly some neurons at each batch training and only optimize weights of the rest neurons. When predicting target value, the model use all the neurons to calculate the output.
+
+The classification distribution for data set is only important. If the data set is not imbalance between different categories, the neural network model can not learn how to classify well. To solve it, we combine close categories. The better way may be using weighted cross entropy loss function instead of standard cross entropy loss function, or over-sampling and under-sampling data set.

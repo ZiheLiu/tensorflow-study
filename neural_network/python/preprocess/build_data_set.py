@@ -5,6 +5,34 @@ from utils import file_utils
 from utils.shell_args import SHELL_ARGS
 
 
+def _get_target_data(target_data: str):
+    target_data = float(target_data)
+    if target_data <= 8:
+        return '0'
+    elif target_data <= 10:
+        return '1'
+    else:
+        return '2'
+
+
+def _get_source_data(columns: list, target_idx: int):
+    item = list()
+    for idx, word in enumerate(columns):
+        if idx != target_idx:
+            if idx == 0:
+                item.append(1 if word == 'M' else 0)
+            else:
+                item.append(float(word))
+    return item
+
+
+def _normalization(source_data: np.ndarray):
+    max_source_data = np.max(source_data, axis=0)
+    min_source_data = np.min(source_data, axis=0)
+    source_data = (source_data - min_source_data) / (max_source_data - min_source_data)
+    return source_data
+
+
 def build_data_set(raw_data_path, write_prefix, target_idx, delimiter=',', skip_head=False):
     source_lines = list()
     target_lines = list()
@@ -14,16 +42,20 @@ def build_data_set(raw_data_path, write_prefix, target_idx, delimiter=',', skip_
         lines = lines[1:]
     for line in lines:
         columns = line.split(delimiter)
-
-        source_lines.append(','.join([word for idx, word in enumerate(columns) if idx != target_idx]))
-
-        target_data = columns[target_idx]
+        target_data = _get_target_data(columns[target_idx])
+        source_data = _get_source_data(columns, target_idx)
+        source_lines.append(source_data)
         target_lines.append(target_data)
+
         if target_data not in target_vocab:
             target_vocab[target_data] = len(target_vocab)
 
     source_data = np.array(source_lines)
     target_data = np.array(target_lines)
+
+    source_data = _normalization(source_data)
+
+    source_data = np.array([','.join([str(word) for word in source_line]) for source_line in source_data])
 
     index_list = np.arange(len(source_data))
     np.random.shuffle(index_list)
@@ -58,4 +90,4 @@ def build_data_set(raw_data_path, write_prefix, target_idx, delimiter=',', skip_
 
 
 if __name__ == '__main__':
-    build_data_set(SHELL_ARGS.raw_data_path, SHELL_ARGS.prefix, 11, delimiter=';', skip_head=True)
+    build_data_set(SHELL_ARGS.raw_data_path, SHELL_ARGS.prefix, 8, delimiter=',', skip_head=False)

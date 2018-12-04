@@ -42,7 +42,7 @@ class Train(object):
         accurate = 0
         for test_source_batch, test_target_batch in batches_func(self.batch_size):
             predictions = self.model.predict(test_source_batch)
-            mask = predictions == test_target_batch
+            mask = np.argmax(predictions, axis=1) == np.argmax(test_target_batch, axis=1)
             accurate += np.mean(mask)
         accurate /= batches_sum
         return accurate
@@ -122,10 +122,13 @@ class Train(object):
                             (epoch_i, cur_train_loss_value, cur_eval_loss_value))
 
             if cur_train_loss_value > pre_train_loss_value or cur_eval_loss_value > pre_eval_loss_value:
+                self.learning_rate *= 0.5
                 increase_times += 1
                 if increase_times >= 5:
                     LOGGER.info('Early stop, increase_times >= 5')
                     break
+            else:
+                self.learning_rate *= 1.05
             pre_train_loss_value = cur_train_loss_value
             pre_eval_loss_value = cur_eval_loss_value
             train_loss_list.append(cur_train_loss_value)

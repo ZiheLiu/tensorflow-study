@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.17)  2 NOV 2018 16:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.10.17)  5 NOV 2018 21:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -744,7 +744,29 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
-) (./writing/data_set.tex) (./writing/modules.tex
+
+Overfull \hbox (20.86668pt too wide) in paragraph at lines 36--37
+[][][][][][][][][][][][][][][] 
+ []
+
+) (./writing/data_set.tex
+<images/age-dis.png, id=29, 847.165pt x 671.50874pt>
+File: images/age-dis.png Graphic file (type png)
+<use images/age-dis.png>
+Package pdftex.def Info: images/age-dis.png  used on input line 10.
+(pdftex.def)             Requested size: 248.42812pt x 196.91502pt.
+
+Overfull \hbox (11.29218pt too wide) in paragraph at lines 10--11
+ [][] 
+ []
+
+) (./writing/modules.tex
+Underfull \vbox (badness 6944) has occurred while \output is active []
+
+ [1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./images/age-dis.png>]
 LaTeX Font Info:    Try loading font information for OML+ptm on input line 9.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
@@ -752,31 +774,27 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 9.
 
-Underfull \hbox (badness 2932) in paragraph at lines 20--21
+Underfull \hbox (badness 2932) in paragraph at lines 16--17
 []\OT1/ptm/m/sl/10 data.py \OT1/ptm/m/n/10 is to read the pre-pro-cessed data set and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
 []\OT1/ptm/m/n/10 The mod-ule \OT1/ptm/m/sl/10 mod-el/ \OT1/ptm/m/n/10 de-fines the Neu-ral Net-
  []
 
 
-Underfull \hbox (badness 7433) in paragraph at lines 31--32
+Underfull \hbox (badness 7433) in paragraph at lines 27--28
 \OT1/ptm/m/n/10 work model, with three parts in-clud-ing \OT1/ptm/m/sl/10 ac-ti-va-tor/\OT1/ptm/m/n/10 ,
  []
 
-[1{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-<images/dnn.png, id=38, 382.0674pt x 428.3202pt>
+<images/dnn.png, id=40, 382.0674pt x 428.3202pt>
 File: images/dnn.png Graphic file (type png)
 <use images/dnn.png>
-Package pdftex.def Info: images/dnn.png  used on input line 38.
+Package pdftex.def Info: images/dnn.png  used on input line 34.
 (pdftex.def)             Requested size: 198.73946pt x 222.79967pt.
- [2 <./images/dnn.png>]) (./writing/evaluation.tex
-<images/iris_loss.png, id=52, 462.528pt x 346.896pt>
+[2 <./images/dnn.png>]) (./writing/evaluation.tex
+<images/iris_loss.png, id=49, 462.528pt x 346.896pt>
 File: images/iris_loss.png Graphic file (type png)
 <use images/iris_loss.png>
 Package pdftex.def Info: images/iris_loss.png  used on input line 6.
@@ -786,37 +804,35 @@ Overfull \hbox (11.29218pt too wide) in paragraph at lines 6--7
  [][] 
  []
 
-<images/wine_loss.png, id=53, 462.528pt x 346.896pt>
-File: images/wine_loss.png Graphic file (type png)
-<use images/wine_loss.png>
-Package pdftex.def Info: images/wine_loss.png  used on input line 13.
+<images/ablone-loss.png, id=50, 462.528pt x 346.896pt>
+File: images/ablone-loss.png Graphic file (type png)
+<use images/ablone-loss.png>
+Package pdftex.def Info: images/ablone-loss.png  used on input line 13.
 (pdftex.def)             Requested size: 248.42812pt x 186.32062pt.
 
 Overfull \hbox (11.29218pt too wide) in paragraph at lines 13--14
  [][] 
  []
 
-[3 <./images/iris_loss.png> <./images/wine_loss.png>]) (./writing/conclusion.tex
+[3 <./images/iris_loss.png>]) (./writing/conclusion.tex
 Underfull \hbox (badness 1184) in paragraph at lines 2--3
 []\OT1/ptm/m/n/10 We im-ple-ment the fully con-nected Neu-ral Net-work
  []
 
-) [4
-
-] (/Users/liuzihe/MyFiles/Study/Project/Python/tensorflow-study/neural_network/python/doc/.texpadtmp/main.aux) ) 
+) [4 <./images/ablone-loss.png>] (/Users/liuzihe/MyFiles/Study/Project/Python/tensorflow-study/neural_network/python/doc/.texpadtmp/main.aux) ) 
 Here is how much of TeX's memory you used:
- 19040 strings out of 492649
- 380288 string characters out of 6129621
- 466342 words of memory out of 5000000
- 22482 multiletter control sequences out of 15000+600000
+ 19047 strings out of 492649
+ 380425 string characters out of 6129621
+ 472363 words of memory out of 5000000
+ 22488 multiletter control sequences out of 15000+600000
  25429 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,11n,99p,618b,1389s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on /Users/liuzihe/MyFiles/Study/Project/Python/tensorflow-study/neural_network/python/doc/.texpadtmp/main.pdf (4 pages, 281346 bytes).
+Output written on /Users/liuzihe/MyFiles/Study/Project/Python/tensorflow-study/neural_network/python/doc/.texpadtmp/main.pdf (4 pages, 299288 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 124 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

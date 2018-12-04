@@ -19,4 +19,4 @@ SUFFIX_TARGET_VOCAB = '.target.vocab.json'
 
 # hyper params
 LEARNING_RATE = 0.001
-EPOCHS = 500
+EPOCHS = 2000

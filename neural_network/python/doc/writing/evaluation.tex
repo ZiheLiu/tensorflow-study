@@ -10,17 +10,19 @@ We train the Neural Network model on iris data set and wine-quality data set.
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width = .5\textwidth]{images/wine_loss.png}
-	\caption{The epoch-loss curves for train data and validation data on wine-quality data set.}
+	\includegraphics[width = .5\textwidth]{images/ablone-loss.png}
+	\caption{The epoch-loss curves for train data and validation data on abalone data set.}
 	\label{fig:wine_loss}
 \end{figure}
 
 \subsection{Accuracy Rate of Two Data Set}
 For iris data set, the hidden size is 64 with one hidden layer, batch size is 8, activator is \(tanh\) and learning rate is 0.01. The curve between iterations and loss value of train data set and validation set is show as Figure \ref{fig:iris_loss}. It is early stopped after training 69 iterations. The accuracy rate of train set, validation set and test set is respectively 98.33\%, 100\% and 100\%.
 
-For wine-quality data set, the hidden size is 32 with two hidden layers, batch size is 16, activator is \(tanh\) and learning rate is 0.01. The curve between iterations and loss value of train data set and validation set is show as Figure \ref{fig:wine_loss}. It is early stopped after training 36 iterations. The accuracy rate of train set, validation set and test set is respectively 89.92\%, 90.37\% and 89.84\%.
+For abalone data set, the hidden layers have 4 layers with 16, 32, 64 neurons, batch size is 16, activator is \(tanh\) and learning rate is 0.01. The curve between iterations and loss value of train data set and validation set is show as Figure \ref{fig:wine_loss}. It is early stopped after training 36 iterations. The accuracy rate of train set, validation set and test set is respectively 63.78\%, 62.26\% and 66.82\%.
 
-We can see the fully connected Neural Network model performs well on nonlinear multi-classification problems, when the activator of output layer is \(softmax\) and the loss function is cross entropy. With proper depth of hidden layer and size of hidden layer, the loss value is near to zero and the accuracy rate is up to more than 90\%.
+We can see the fully connected Neural Network model performs well on nonlinear multi-classification problems, when the activator of output layer is \(softmax\) and the loss function is cross entropy. With proper depth of hidden layer and size of hidden layer, the model performs well and the accuracy is low.
+
+However if we do not combine catalogs on abalone data set and use 29 catalogs to train the model. The accuracy is only around 25\%. Because the 29 catalogs are imbalance from which the neural network can not learn how to classify them well.
 
 \subsection{Accuracy Rate of Different Hyper Parameters}
 There are some hyper parameters affecting the performances of result, including depth of hidden layer, size of each hidden layer, batch size, activator and initialization of learnable parameters. We choose various values for each hyper parameter to evaluate the performances.
