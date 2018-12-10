@@ -5,4 +5,4 @@ from .initializer import Initializer
 
 class RandomInitializer(Initializer):
     def fit(self, source_data):
-        return np.random.sample(source_data, self.n_clusters)
+        return source_data[np.random.randint(source_data.shape[0], size=self.n_clusters), :]
